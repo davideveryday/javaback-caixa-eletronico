@@ -34,20 +34,27 @@ public class CaixaEletronico implements ICaixaEletronico {
         // valor que falta pra pagar
         int restante = valor;
         // quantas notas de cada tipo vai usar
-        int[] dist = new int[cedulas.length];
+        int[] distribuicao = new int[cedulas.length];
 
         for (int i = 0; i < cedulas.length; i++) {
             int nota = cedulas[i][0];
             int estoque = cedulas[i][1];
             // qtd não pode ser maior do que a quantidade que falta
             // nem mais do que tem no caixa
+            // vai ser a quantidade maxima de notas que pode usar
             int qtd = Math.min(restante / nota, estoque);
+
+            // verifica se, ao usar nota de 5, o restante vai ficar um valor ímpar impossível de suprir com notas de 2
+            // se sim, usa uma nota de 5 a menos
+            if (nota == 5 && qtd > 0 && (restante - qtd * nota) % 2 != 0) {
+                qtd--;
+            }
             // salva as que usou e diminui do valor que falta
-            dist[i] = qtd;
+            distribuicao[i] = qtd;
             restante -= qtd * nota;
         }
         // retorna as cedulas usadas e a quantidade
-        return (restante == 0) ? dist : null;
+        return (restante == 0) ? distribuicao : null;
     }
 
     private int contarCedulas(int[] dist) {
@@ -68,14 +75,18 @@ public class CaixaEletronico implements ICaixaEletronico {
 
     private String montarResposta(int[] dist) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Saque realizado:\n");
+        int total = 0;
 
+        sb.append("Saque realizado:\n");
         for (int i = 0; i < cedulas.length; i++) {
             if (dist[i] > 0) {
+                int valorNota = cedulas[i][0];
+                int qtd = dist[i];
                 sb.append("Nota ").append(cedulas[i][0]).append(": ").append(dist[i]).append("\n");
+                total += valorNota * qtd;
             }
         }
-        this.historicoSaques += sb.toString() + "\n";
+        this.historicoSaques += sb.toString() + "Total: R$ " + total + "\n\n";
 
         return sb.toString();
     }
