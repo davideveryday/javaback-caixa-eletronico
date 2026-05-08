@@ -1,6 +1,5 @@
 package javaback.grupo;
 
-
 public class CaixaEletronico implements ICaixaEletronico {
 
     private int[][] cedulas = {
@@ -133,8 +132,7 @@ public class CaixaEletronico implements ICaixaEletronico {
                 this.cedulas[i][1] += quantidade;
                 return "Reposição de " + cedula + " feita com sucesso";
             }
-        }    GUI janela = new GUI(CaixaEletronico.class);
-    janela.show();
+        }
 
         return "Cédula inválida!";
     }
