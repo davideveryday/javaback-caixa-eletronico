@@ -1,6 +1,19 @@
-# Caixa Eletrônico em Java
+# JAVABACK - Caixa Eletrônico
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Swing](https://img.shields.io/badge/Swing-Java-blue?style=for-the-badge)
 
 Projeto em Java que simula o funcionamento de um caixa eletrônico com operações básicas e interface gráfica.
+
+## Integrantes
+
+| Integrante | Função |
+|---|---|
+| Murilo Vaz Minamizawa | Algoritmo de saque |
+| Igor Silva dos Santos | Algoritmo de saque |
+| Bruno de Assis Carvalho | Interface gráfica |
+| David Sousa Castro | Implementação dos demais métodos e versionamento |
+| Gabriel Luiz Souza Marques | Revisão de código e correção de bugs |
 
 ## Funcionalidades
 
@@ -24,13 +37,13 @@ Projeto em Java que simula o funcionamento de um caixa eletrônico com operaçõ
 ## Estrutura
 
 - CaixaEletronico.java —  lógica do sistema  
-- Interface.java — interface gráfica  
+- GUI.java — interface gráfica  
 - ICaixaEletronico.java — contrato de métodos  
 
 ## Como executar
 
 1. Compile o projeto  
-2. Execute a classe `Interface`  
+2. Execute a classe `CaixaEletronico`  
 
 ## Observações
 
