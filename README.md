@@ -5,6 +5,10 @@
 
 Projeto em Java que simula o funcionamento de um caixa eletrônico com operações básicas e interface gráfica.
 
+<p align="center">
+  <img src="./img/screenshot.png" width="400">
+</p>
+
 ## Integrantes
 
 | Integrante | Função |
